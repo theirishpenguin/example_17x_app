@@ -2,11 +2,15 @@ defmodule Example17xAppWeb.Router do
   use Example17xAppWeb, :router
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug :accepts, ["json-api"]
+    plug JaSerializer.ContentTypeNegotiation
+    plug JaSerializer.Deserializer
   end
 
   scope "/api", Example17xAppWeb do
     pipe_through :api
+
+    resources "/thing", ThingController, only: [:show], singleton: true
   end
 
   # Enable LiveDashboard in development
