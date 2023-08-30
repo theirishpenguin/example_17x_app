@@ -38,7 +38,7 @@ defmodule Example17xAppWeb do
   def controller do
     quote do
       use Phoenix.Controller,
-        formats: [:html, :json],
+        formats: [:html, :json, :"json-api"],
         layouts: [html: Example17xAppWeb.Layouts]
 
       import Plug.Conn
