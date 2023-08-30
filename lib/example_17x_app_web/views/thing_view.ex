@@ -12,4 +12,8 @@ defmodule :"Elixir.Example17xAppWeb.ThingJSON-API" do
   def id(_data, _conn) do
     "singular"
   end
+
+  def type do
+    "things"
+  end
 end
